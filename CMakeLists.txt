@@ -32,3 +32,4 @@ function(add_exercise FOLDER)
 endfunction(add_exercise)
 
 add_exercise(convolution)
+add_exercise(vortex)
