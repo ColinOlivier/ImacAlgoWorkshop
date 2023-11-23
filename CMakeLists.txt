@@ -31,5 +31,8 @@ function(add_exercise FOLDER)
 
 endfunction(add_exercise)
 
-add_exercise(convolution)
-add_exercise(vortex)
+add_exercise(16_glitch)
+add_exercise(18_vortex)
+add_exercise(21_convolution)
+add_exercise(25_triPixels)
+add_exercise(26_kuwahara)
