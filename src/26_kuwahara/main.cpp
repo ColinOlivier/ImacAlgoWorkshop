@@ -15,7 +15,7 @@ int main()
     {
         for (size_t y = 0; y < input_image.height(); ++y)
         {
-            output_image.pixel(x, y) = getKuwaharaFilterValue(input_image, glm::vec2{x, y}, 7);
+            output_image.pixel(x, y) = getKuwaharaFilterValue(input_image, glm::vec2{x, y}, 21);
         }
     }
 
@@ -78,19 +78,16 @@ glm::vec3 getKuwaharaFilterValue(sil::Image &image, glm::vec2 position, int coef
         standard_deviation_scares[i].b = sqrt((sum_standard_deviation / (float)(values_scares[i].size())).b);
     }
 
-    glm::vec3 return_standard_deviation{standard_deviation_scares[0]};
+    glm::vec3 min_standard_deviation{standard_deviation_scares[0]};
     int return_index{0};
 
-    for (size_t i = 0; i < 4; i++)
+    for (size_t i = 1; i < 4; i++)
     {
-        if (return_standard_deviation.length() > standard_deviation_scares[i].length())
+        if (glm::length(min_standard_deviation) > glm::length(standard_deviation_scares[i]))
         {
-            return_standard_deviation = standard_deviation_scares[i];
+            min_standard_deviation = standard_deviation_scares[i];
             return_index = i;
         }
     }
-
-    std::count << i << std::endl;
-
     return average_scares[return_index];
 }
