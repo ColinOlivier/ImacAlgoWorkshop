@@ -12,11 +12,11 @@ int main()
         {
             /*pour assombrir on fait puissance 1 jusqu'à l'infini*/
             /*pour éclaircir on fait puissance entre 0 et 1*/
-            image.pixel(x,y).r= pow(image.pixel(x,y).r,2);
-            image.pixel(x,y).g= pow(image.pixel(x,y).g,2);
-            image.pixel(x,y).b= pow(image.pixel(x,y).b,2);
+            image.pixel(x,y).r= pow(image.pixel(x,y).r,0.6);
+            image.pixel(x,y).g= pow(image.pixel(x,y).g,0.6);
+            image.pixel(x,y).b= pow(image.pixel(x,y).b,0.6);
         }
     }
-    image.save("output/luminosite.png");
+    image.save("output/luminosite2.jpg");
 }
 
