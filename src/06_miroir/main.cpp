@@ -36,5 +36,5 @@ int main()
            image.pixel(x, y)=copie.pixel(image.width()-1-x, y);
         }
     }
-    image.save("output/pouet.png");
+    image.save("output/miroir.png");
 }

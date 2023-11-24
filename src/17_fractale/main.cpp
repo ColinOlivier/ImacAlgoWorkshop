@@ -30,5 +30,5 @@ int main()
             image.pixel(x,y)=glm::vec3{count/50.f};
         }
     }
-    image.save("output/pouet.png");
+    image.save("output/fractale.png");
 }

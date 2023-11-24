@@ -19,5 +19,5 @@ int main()
         }
     }
     
-    image.save("output/pouet.png");
+    image.save("output/degrade.png");
 }

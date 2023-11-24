@@ -8,5 +8,5 @@ int main()
     {
         color = glm::vec3{1-color.r,1-color.g,1-color.b};
     }
-    image.save("output/pouet.png");
+    image.save("output/negatif.png");
 }

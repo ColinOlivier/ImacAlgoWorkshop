@@ -21,5 +21,5 @@ int main()
             }
         }
     }
-    copie.save("output/pouet.png");
+    copie.save("output/rgbsplit.png");
 }
