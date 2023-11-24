@@ -8,14 +8,14 @@ glm::vec3 getKuwaharaFilterValue(sil::Image &image, glm::vec2 position, int coef
 
 int main()
 {
-    sil::Image input_image{"images/photo.jpg"};
+    sil::Image input_image{"images/photo_blur.jpg"};
     sil::Image output_image{input_image};
 
     for (size_t x = 0; x < input_image.width(); ++x)
     {
         for (size_t y = 0; y < input_image.height(); ++y)
         {
-            output_image.pixel(x, y) = getKuwaharaFilterValue(input_image, glm::vec2{x, y}, 21);
+            output_image.pixel(x, y) = getKuwaharaFilterValue(input_image, glm::vec2{x, y}, 7);
         }
     }
 
@@ -27,9 +27,9 @@ glm::vec3 getKuwaharaFilterValue(sil::Image &image, glm::vec2 position, int coef
 {
     std::array<glm::vec2, 4> startPoints{
         glm::vec2{-(coeff / 2), -(coeff / 2)} + position,
-        glm::vec2{1, -(coeff / 2)} + position,
-        glm::vec2{1, 1} + position,
-        glm::vec2{-(coeff / 2), 1} + position};
+        glm::vec2{0, -(coeff / 2)} + position,
+        glm::vec2{0, 0} + position,
+        glm::vec2{-(coeff / 2), 0} + position};
 
     std::array<std::vector<glm::vec3>, 4> values_scares{
         std::vector<glm::vec3>{},
@@ -42,9 +42,9 @@ glm::vec3 getKuwaharaFilterValue(sil::Image &image, glm::vec2 position, int coef
 
     for (size_t i = 0; i < 4; ++i)
     {
-        for (size_t x = 0; x < coeff / 2; x++)
+        for (size_t x = 0; x < (coeff / 2) + 1; x++)
         {
-            for (size_t y = 0; y < coeff / 2; y++)
+            for (size_t y = 0; y < (coeff / 2) + 1; y++)
             {
                 if (
                     startPoints[i].x + x < 0 ||
