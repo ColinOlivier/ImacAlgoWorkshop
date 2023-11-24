@@ -77,7 +77,7 @@ Pour ne garder que le vert de l'image, nous avons mis les canaux rouge et bleu �
 <!---
 TODO :  Add explication.
 -->
-Nous avons utiliser deux méthodes:
+Nous avons utilisé deux méthodes:
 - Avec une variable de stockage
 ```cpp
     for (glm::vec3& color : image.pixels())
@@ -114,7 +114,7 @@ for (glm::vec3& color : image.pixels())
     }
 ```
 Pour chaque canal de la nouvelle image, nous avons additionné les différentes valeurs des canaux et on les a divisé par 3 pour qu'elles aient toute la même valeur.
-Pourquoi ne pas les avoir juste mise à la même valeur dès le départ? Si nous faisons ça, nous ne prenons pas en compte les couleurs d'origine de l'image et nous obtenons une image entièrement grise.
+Pourquoi ne pas les avoir juste mise à la même valeur dès le départ? Si nous faisions ça, nous ne prenions pas en compte les couleurs d'origine de l'image et nous obtenions une image entièrement grise.
 
 ### ⭐ Négatif
 
@@ -177,7 +177,7 @@ TODO :  Add explication.
 ```cpp
 copie.pixel(image.height()-1-y,x)=image.pixel(x,y);
 ```
-**Rq:** On aurait aussi pu seulement échanger les x et les y et ensuite appliquer le programme du miroir!
+**Rq:** Nous aurions aussi pu échanger les x et les y et ensuite appliquer le programme du miroir!
 
 ### ⭐⭐ RGB split
 
@@ -200,7 +200,7 @@ if(x<(image.width()-29)){
     copie.pixel(x,y).b=image.pixel(x+29,y).b;
 }
 ```
-Nous avons décaler le rouge vers la droite et le bleu vers a gauche en prenant soin qu'aucun pixel ne "sorte" de l'image.
+Nous avons décaler le rouge vers la droite et le bleu vers a gauche en prenant soin qu'aucun pixel ne "sorte" de l'image (le 29 est arbitraire, c'est seulement le chiffre porte bonheur d'Angèle ^^ ).
 
 ### ⭐⭐ Luminosité
 
@@ -211,8 +211,7 @@ Nous avons décaler le rouge vers la droite et le bleu vers a gauche en prenant 
 <!---
 TODO :  Add explication.
 -->
-Pour assombrir nous appliquons une puissance plus grande que 1 à chaque canal.
-Pour éclaircir nous appliquons une puissance entre 0 et 1 à chaque canal.
+Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaque canal. Pour l'éclaircir nous appliquons une puissance entre 0 et 1 à chaque canal.
 
 ### ⭐⭐ Disque
 
@@ -224,9 +223,9 @@ Pour éclaircir nous appliquons une puissance entre 0 et 1 à chaque canal.
 TODO :  Add explication.
 -->
 
-```cpp
+<!-- ```cpp
     
-```
+``` -->
 
 ### ⭐ Cercle
 
@@ -237,9 +236,9 @@ TODO :  Add explication.
 TODO :  Add explication.
 -->
 
-```cpp
+<!-- ```cpp
     
-```
+``` -->
 
 ### ⭐⭐⭐ Rosace
 
@@ -251,9 +250,9 @@ TODO :  Add explication.
 TODO :  Add explication.
 -->
 
-```cpp
+<!-- ```cpp
     
-```
+``` -->
 
 ### ⭐⭐ Mosaïque
 
@@ -271,13 +270,23 @@ TODO :  Add explication.
 TODO :  Add explication.
 -->
 
-```cpp
+<!-- ```cpp
     
-```
+``` -->
 
 ### ⭐⭐⭐(⭐) Vortex
 
 ### ⭐⭐⭐(⭐) Tramage
+
+| ![Input Image](images/photo.jpg)| ![Output Image](output/tramage.png) |
+| ------------------------------- | -------------------------------------- |
+| **Input**                       | **Output**                      |   
+
+```cpp
+float bayer_value = bayer_matrix_4x4[y % bayer_n][x % bayer_n];
+float output_color = glm::length(output_image.pixel(x,y)) + (1 * bayer_value); 
+```
+Si nous changeons le coefficient dans le calcul de output_color (ici 1), le résultat varie! Plus ce coefficient est faible, plus l'image parait très contrastée, comme si elle avait gardé ses blancs et noirs purs. A l'inverse, plus il est grand, plus l'image va perdre en contraste et va tendre vers le gris.
 
 ### ⭐⭐⭐⭐ Convolutions
 
