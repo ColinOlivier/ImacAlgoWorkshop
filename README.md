@@ -51,6 +51,22 @@ En vue de rendre compte de manière fidèle de ces cinq jours de programmation i
 
 ### ⭐ Ne garder que le vert
 
+| ![Input Image](images/logo.png) | ![Output Image](output/gardervert.png) |
+| ------------------------------- | -------------------------------------- |
+| **Input**                       | **Output**                             |
+
+<!---
+TODO :  Add explication.
+-->
+
+```cpp
+    for (glm::vec3& color : image.pixels())
+    {
+        color.r = 0.f;
+        color.b=0.f;
+    }
+```
+
 ### ⭐ Échanger les canaux
 
 ### ⭐ Noir & Blanc
