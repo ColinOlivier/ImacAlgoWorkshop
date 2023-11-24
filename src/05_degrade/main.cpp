@@ -8,14 +8,7 @@ int main()
     {
         for (int y{0}; y < image.height(); y++)
         {
-            image.pixel(x, y) =  glm::vec3{x / 300.f};
-            
-            // while(x<image.width())       NON PADUTOU
-            // {
-            // image.pixel(x, y).r += 0.2;
-            // image.pixel(x, y).g += 0.2;
-            // image.pixel(x, y).b += 0.2;
-            // }
+            image.pixel(x, y) =  glm::vec3{x / (float)(image.width())};
         }
     }
     
