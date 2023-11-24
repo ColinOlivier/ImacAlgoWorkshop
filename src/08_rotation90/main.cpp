@@ -16,5 +16,5 @@ int main()
             //ou copie.pixel(y,x)=image.pixel(x,y) et on fait le miroir
         }
     }
-    copie.save("output/pouet.png");
+    copie.save("output/rotation90.png");
 }

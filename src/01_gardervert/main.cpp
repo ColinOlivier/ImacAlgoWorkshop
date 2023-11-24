@@ -18,5 +18,5 @@ int main()
         color.r = 0.f;
         color.b=0.f;
     }
-    image.save("output/pouet.png");
+    image.save("output/gardervert.png");
 }

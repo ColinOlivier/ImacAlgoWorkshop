@@ -30,5 +30,5 @@ int main()
         }
     }
 
-    output_image.save("output/pouet.png");
+    output_image.save("output/glitch.png");
 }

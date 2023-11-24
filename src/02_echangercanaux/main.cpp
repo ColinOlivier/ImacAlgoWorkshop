@@ -1,6 +1,6 @@
 #include <sil/sil.hpp>
 
-AVEC UNE VARIABLE DE STOCKAGE
+// AVEC UNE VARIABLE DE STOCKAGE
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
         color.r=color.b;
         color.b=red;
     }
-    image.save("output/pouet.png");
+    image.save("output/echangercanaux.png");
 }
 
 // AVEC SWAP

@@ -14,5 +14,5 @@ int main()
            mosaique.pixel(x,y)=image.pixel(x%image.width(),y%image.height());           
         }
     }
-    mosaique.save("output/pouet.png");
+    mosaique.save("output/mosaique.png");
 }

@@ -17,6 +17,6 @@ int main()
             image.pixel(x,y).b= pow(image.pixel(x,y).b,2);
         }
     }
-    image.save("output/pouet.png");
+    image.save("output/luminosite.png");
 }
 

@@ -29,5 +29,5 @@ int main()
            }   
         }
     }
-    mosaique.save("output/pouet.png");
+    mosaique.save("output/mosaiquemiroir.png");
 }
