@@ -26,7 +26,7 @@ int main()
             
             /*creation de la matrice de bayer et calcul de l'output color*/
             float bayer_value = bayer_matrix_4x4[y % bayer_n][x % bayer_n];
-            float output_color = glm::length(output_image.pixel(x,y)) + (3 * bayer_value);  
+            float output_color = glm::length(output_image.pixel(x,y)) + (1 * bayer_value);  
 
             /*condition pour être en blanc*/
             if (output_color > (1.f / 2.f)) {
