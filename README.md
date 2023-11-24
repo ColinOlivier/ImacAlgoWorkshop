@@ -37,6 +37,12 @@ Super Superviseur : Jules FOUCHY*
 
 
 ## Introduction
+Au cours du premier semestre d’enseignement à l’IMAC, nous avons eu l’opportunité de participer à un workshop de programmation algorithmique encadré par Jules Fouchy. L’occasion parfaite pour approfondir nos connaissances en C++. 
+
+Nous avons pu découvrir (ou redécouvrir) comment coder des effets sur des images ainsi que certains concepts de synthèse d'image. Nous nous sommes donc transformés en véritables Photoshop manuels pendant une semaine.
+Ayant des niveaux très hétérogène en C++, nous nous sommes beaucoup apportés tant en connaissances qu’en conseils. 
+
+En vue de rendre compte de manière fidèle de ces cinq jours de programmation intensive, nous présenterons les effets réalisés dans le temps impartis, accompagnés parfois de quelques commentaires explicatifs.
 
 
 
