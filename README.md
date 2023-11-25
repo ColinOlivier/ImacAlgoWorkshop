@@ -209,6 +209,15 @@ Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaqu
 
 ### ⭐⭐⭐(⭐) Vortex
 
+| ![Input Image](images/logo.png) | ![Output Image](output/vortex.png) | ![Output Image](output/vortex.gif) |
+| ------------------------------- | ---------------------------------- | ---------------------------------- |
+| **Input**                       | **Output**                         | **Output animé**                   |
+
+```cpp
+output_image.pixel(output.x, output.y) = input_image.pixel(x, y);
+```
+Pour que tout les pixel de l'image de sortie est une valeur attribuée, il ne faut pas parcourir l'image de sortie et déterminer quel pixel de l'image d'entrée détermine sa valeur car, via cette solution,  beaucoup de pixel de sortie seront associés à des pixel à l'extérieur de l'image. Pour que tout que tous les pixels soient une correspondance, il faut déterminer pour chaque pixel d'entrée, sa position après rotation.
+
 ### ⭐⭐⭐(⭐) Tramage
 
 | ![Input Image](images/photo.jpg) | ![Output Image](output/tramage.png) |
