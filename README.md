@@ -55,10 +55,6 @@ En vue de rendre compte de manière fidèle de ces cinq jours de programmation i
 | ------------------------------- | -------------------------------------- |
 | **Input**                       | **Output**                             |
 
-<!---
-TODO :  Add explication.
--->
-
 ```cpp
     for (glm::vec3& color : image.pixels())
     {
@@ -71,12 +67,9 @@ Pour ne garder que le vert de l'image, nous avons mis les canaux rouge et bleu �
 ### ⭐ Échanger les canaux
 
 | ![Input Image](images/logo.png) | ![Output Image](output/echangercanaux.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                             |
+| ------------------------------- | ------------------------------------------ |
+| **Input**                       | **Output**                                 |
 
-<!---
-TODO :  Add explication.
--->
 Nous avons utilisé deux méthodes:
 - Avec une variable de stockage
 ```cpp
@@ -99,12 +92,8 @@ Nous avons utilisé deux méthodes:
 ### ⭐ Noir & Blanc
 
 | ![Input Image](images/logo.png) | ![Output Image](output/nNb.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                             |
-
-<!---
-TODO :  Add explication.
--->
+| ------------------------------- | ------------------------------- |
+| **Input**                       | **Output**                      |
 
 ```cpp
 for (glm::vec3& color : image.pixels())
@@ -119,34 +108,23 @@ Pourquoi ne pas les avoir juste mise à la même valeur dès le départ? Si nous
 ### ⭐ Négatif
 
 | ![Input Image](images/logo.png) | ![Output Image](output/negatif.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                             |
-
-<!---
-TODO :  Add explication.
--->
-
+| ------------------------------- | ----------------------------------- |
+| **Input**                       | **Output**                          |
 
 ### ⭐ Dégradé
 
 | ![Output Image](output/degrade.png) |
-| -------------------------------------- |
-| **Output**                             |
+| ----------------------------------- |
+| **Output**                          |
 
-<!---
-TODO :  Add explication.
--->
 Nous déterminons la couleur du pixel en fonction de sa position en x.
 
 ### ⭐⭐ Miroir
 
-| ![Input Image](images/logo.png) | ![Output Image](output/miroir.png) |![Output Image](output/miroircaac.png) |
-| ------------------------------- | -------------------------------------- |-------------------------------------- |
-| **Input**                       | **Output**                             |**Output loupé**                             |
+| ![Input Image](images/logo.png) | ![Output Image](output/miroir.png) | ![Output Image](output/miroircaac.png) |
+| ------------------------------- | ---------------------------------- | -------------------------------------- |
+| **Input**                       | **Output**                         | **Output loupé**                       |
 
-<!---
-TODO :  Add explication.
--->
 ```cpp
 image.pixel(x, y)=image.pixel(image.width()-1-x, y);
 ```
@@ -156,23 +134,14 @@ Il y a eu un raté en pensant que nous pouvions transformer les pixels d'un cot�
 ### ⭐⭐ Image bruitée
 
 | ![Input Image](images/logo.png) | ![Output Image](output/bruit.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                             |
-
-<!---
-TODO :  Add explication.
--->
-
+| ------------------------------- | --------------------------------- |
+| **Input**                       | **Output**                        |
 
 ### ⭐⭐ Rotation de 90°
 
 | ![Input Image](images/logo.png) | ![Output Image](output/rotation90.png) |
 | ------------------------------- | -------------------------------------- |
 | **Input**                       | **Output**                             |
-
-<!---
-TODO :  Add explication.
--->
 
 ```cpp
 copie.pixel(image.height()-1-y,x)=image.pixel(x,y);
@@ -182,12 +151,8 @@ copie.pixel(image.height()-1-y,x)=image.pixel(x,y);
 ### ⭐⭐ RGB split
 
 | ![Input Image](images/logo.png) | ![Output Image](output/rgbsplit.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                             |
-
-<!---
-TODO :  Add explication.
--->
+| ------------------------------- | ------------------------------------ |
+| **Input**                       | **Output**                           |
 
 ```cpp
 if (x>29){
@@ -204,55 +169,30 @@ Nous avons décaler le rouge vers la droite et le bleu vers a gauche en prenant 
 
 ### ⭐⭐ Luminosité
 
-| ![Input Image](images/photo.jpg)| ![Output Image](output/luminosite.jpg) |![Output Image](output/luminosite2.jpg) |
-| ------------------------------- | -------------------------------------- |-------------------------------------- |
-| **Input**                       | **Output sombre**                      |**Output clair**                           |
+| ![Input Image](images/photo.jpg) | ![Output Image](output/luminosite.jpg) | ![Output Image](output/luminosite2.jpg) |
+| -------------------------------- | -------------------------------------- | --------------------------------------- |
+| **Input**                        | **Output sombre**                      | **Output clair**                        |
 
-<!---
-TODO :  Add explication.
--->
 Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaque canal. Pour l'éclaircir nous appliquons une puissance entre 0 et 1 à chaque canal.
 
 ### ⭐⭐ Disque
 
-| ![Output Image](output/disque.png)|
-| -------------------------------   | 
-| **Output**                        | 
-
-<!---
-TODO :  Add explication.
--->
-
-<!-- ```cpp
-    
-``` -->
+| ![Output Image](output/disque.png) |
+| ---------------------------------- |
+| **Output**                         |
 
 ### ⭐ Cercle
 
-| ![Output Image](output/cercle.png)|
-| -------------------------------   | 
-| **Output**                        | 
-<!---
-TODO :  Add explication.
--->
-
-<!-- ```cpp
-    
-``` -->
+| ![Output Image](output/cercle.png) |
+| ---------------------------------- |
+| **Output**                         |
 
 ### ⭐⭐⭐ Rosace
 
-| ![Output Image](output/rosace.png)|
-| -------------------------------   | 
-| **Output**                        | 
+| ![Output Image](output/rosace.png) |
+| ---------------------------------- |
+| **Output**                         |
 
-<!---
-TODO :  Add explication.
--->
-
-<!-- ```cpp
-    
-``` -->
 
 ### ⭐⭐ Mosaïque
 
@@ -262,25 +202,18 @@ TODO :  Add explication.
 
 ### ⭐⭐⭐ Fractale de Mandelbrot
 
-| ![Output Image](output/fractale.png)|
-| -------------------------------   | 
-| **Output**                        | 
+| ![Output Image](output/fractale.png) |
+| ------------------------------------ |
+| **Output**                           |
 
-<!---
-TODO :  Add explication.
--->
-
-<!-- ```cpp
-    
-``` -->
 
 ### ⭐⭐⭐(⭐) Vortex
 
 ### ⭐⭐⭐(⭐) Tramage
 
-| ![Input Image](images/photo.jpg)| ![Output Image](output/tramage.png) |
-| ------------------------------- | -------------------------------------- |
-| **Input**                       | **Output**                      |   
+| ![Input Image](images/photo.jpg) | ![Output Image](output/tramage.png) |
+| -------------------------------- | ----------------------------------- |
+| **Input**                        | **Output**                          |
 
 ```cpp
 float bayer_value = bayer_matrix_4x4[y % bayer_n][x % bayer_n];
