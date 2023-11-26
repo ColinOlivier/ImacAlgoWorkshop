@@ -7,7 +7,7 @@
 
 *Contributeur : Angèle DOUET - Colin OLIVIER*
 
-*Super Superviseur : Jules FOUCHY*
+*Super Superviseur :* [Jules Fouchy](https://github.com/JulesFouchy)
 
 - [💻 Programmation algorithmique - IMAC 1 - WORKSHOP 💻](#-programmation-algorithmique---imac-1---workshop-)
   - [Introduction](#introduction)
