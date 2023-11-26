@@ -41,9 +41,9 @@
 Au cours du premier semestre d’enseignement à l’IMAC, nous avons eu l’opportunité de participer à un workshop de programmation algorithmique encadré par Jules Fouchy. L’occasion parfaite pour approfondir nos connaissances en C++. 
 
 Nous avons pu découvrir (ou redécouvrir) comment coder des effets sur des images ainsi que certains concepts de synthèse d'image. Nous nous sommes donc transformés en véritables Photoshop manuels pendant une semaine.
-Ayant des niveaux très hétérogène en C++, nous nous sommes beaucoup apportés tant en connaissances qu’en conseils. 
+Ayant des niveaux très hétérogènes en C++, nous nous sommes beaucoup apportés tant en connaissances qu’en conseils. 
 
-En vue de rendre compte de manière fidèle de ces cinq jours de programmation intensive, nous présenterons les effets réalisés dans le temps impartis, accompagnés parfois de quelques commentaires explicatifs.
+En vue de rendre compte de manière fidèle de ces cinq jours de programmation intensive, nous présenterons les effets réalisés dans le temps imparti, accompagnés parfois de quelques commentaires explicatifs.
 
 
 
@@ -103,8 +103,8 @@ for (glm::vec3& color : image.pixels())
         color = glm::vec3{niveau_de_gris, niveau_de_gris, niveau_de_gris};
     }
 ```
-Pour chaque canal de la nouvelle image, nous avons additionné les différentes valeurs des canaux et on les a divisé par 3 pour qu'elles aient toute la même valeur.
-Pourquoi ne pas les avoir juste mise à la même valeur dès le départ? Si nous faisions ça, nous ne prenions pas en compte les couleurs d'origine de l'image et nous obtenions une image entièrement grise.
+Pour chaque canal de la nouvelle image, nous avons additionné les différentes valeurs des canaux et nous les avons divisé par 3 pour qu'elles aient toutes la même valeur.
+Pourquoi ne pas les avoir juste mises à la même valeur dès le départ? Si nous faisions ça, nous ne prenions pas en compte les couleurs d'origine de l'image et nous obtenions une image entièrement grise.
 
 ### ⭐ Négatif
 
@@ -166,7 +166,7 @@ if(x<(image.width()-29)){
     copie.pixel(x,y).b=image.pixel(x+29,y).b;
 }
 ```
-Nous avons décaler le rouge vers la droite et le bleu vers a gauche en prenant soin qu'aucun pixel ne "sorte" de l'image (le 29 est arbitraire, c'est seulement le chiffre porte bonheur d'Angèle ^^ ).
+Nous avons décalé le rouge vers la droite et le bleu vers a gauche en prenant soin qu'aucun pixel ne "sorte" de l'image (le 29 est arbitraire, c'est seulement le chiffre porte bonheur d'Angèle ^^ ).
 
 ### ⭐⭐ Luminosité
 
@@ -201,8 +201,6 @@ Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaqu
 | ------------------------------- | ------------------------------------ |
 | **Input**                       | **Output**                           |
 
-La solution que nous avons utilisée est de déterminer pour chaque pixel de l'image de sortie la coordonnée de pixel de l'image d'entrée à écrire sur l'image de sortie.
-
 ```cpp
 output_image(x,y) = input_image(x % input_image.width(), y % input_image.height())
 ```
@@ -213,31 +211,25 @@ output_image(x,y) = input_image(x % input_image.width(), y % input_image.height(
 | ------------------------------- | ------------------------------------------ |
 | **Input**                       | **Output**                                 |
 
-Pour la mosaique miroir, nous utilisons le même principe que pour la mosaique classique mais avec une condition pour déterminer quand retourner l'image.
+Pour la mosaïque miroir, nous utilisons le même principe que pour la mosaïque classique mais avec une condition pour déterminer quand retourner l'image.
 
 ```cpp
-    for (int x{0}; x < (mosaique.width()); x++)
-    {
-        for (int y{0}; y < mosaique.height(); y++)
-        {
-            if (x % (image.width() * 2) < image.width()){
-                if (y % (image.height() * 2) < image.height()){
-                    [...] // Pas de mirroir
-                }
-                else{
-                    [...] // Miroir sur les y
-                }
-            }
-            else{
-                if (y % (image.height() * 2) < image.height()){
-                    [...] // Miroir sur les x
-                }
-                else{
-                    [...] // Miroir sur les x et y
-                }
-            }
-        }
+if (x % (image.width() * 2) < image.width()){
+    if (y % (image.height() * 2) < image.height()){
+        [...] // Pas de mirroir
     }
+    else{
+        [...] // Miroir sur les y
+    }
+}
+else{
+    if (y % (image.height() * 2) < image.height()){
+        [...] // Miroir sur les x
+    }
+    else{
+        [...] // Miroir sur les x et y
+    }
+}
 ```
 
 ### ⭐⭐⭐ Glitch
@@ -262,7 +254,8 @@ Pour la mosaique miroir, nous utilisons le même principe que pour la mosaique c
 ```cpp
 output_image.pixel(output.x, output.y) = input_image.pixel(x, y);
 ```
-Pour que tout les pixel de l'image de sortie est une valeur attribuée, il ne faut pas parcourir l'image de sortie et déterminer quel pixel de l'image d'entrée détermine sa valeur car, via cette solution,  beaucoup de pixel de sortie seront associés à des pixel à l'extérieur de l'image. Pour que tous les pixels soient une correspondance, il faut déterminer pour chaque pixel d'entrée, sa position après rotation.
+Pour que tous les pixels de l'image de sortie aient une valeur attribuée, il ne faut pas parcourir l'image de sortie et déterminer quel pixel de l'image d'entrée détermine sa valeur. Via cette solution,  beaucoup de pixels de sortie seront associés à des pixels à l'extérieur de l'image. 
+Pour que tous les pixels aient une correspondance, il faut donc déterminer pour chaque pixel d'entrée, sa position après rotation.
 
 ### ⭐⭐⭐(⭐) Tramage
 
@@ -282,7 +275,7 @@ Si nous changeons le coefficient dans le calcul de output_color (ici 1), le rés
 | ------------------------------- | -------------------------------- |
 | **Input**                       | **Output**                       |
 
-Nous avons utilisé la méthode de multiplier chaque pixel de l'image d'entrée par une matrice 3x3 :
+Nous avons multiplié chaque pixel de l'image d'entrée par une matrice 3x3 :
 
 $$
 \frac{1}{9}
