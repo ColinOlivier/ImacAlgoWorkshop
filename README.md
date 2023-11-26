@@ -5,8 +5,9 @@
 
 📆 20 - 27 Novembre 2023
 
-*Contributeur : Angèle DOUET - Colin OLIVIER
-Super Superviseur : Jules FOUCHY*
+*Contributeur : Angèle DOUET - Colin OLIVIER*
+
+*Super Superviseur : Jules FOUCHY*
 
 - [💻 Programmation algorithmique - IMAC 1 - WORKSHOP 💻](#-programmation-algorithmique---imac-1---workshop-)
   - [Introduction](#introduction)
