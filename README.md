@@ -196,9 +196,54 @@ Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaqu
 
 ### ⭐⭐ Mosaïque
 
+| ![Input Image](images/logo.png) | ![Output Image](output/mosaique.png) |
+| ------------------------------- | ------------------------------------ |
+| **Input**                       | **Output**                           |
+
+La solution que nous avons utilisée est de déterminer pour chaque pixel de l'image de sortie la coordonnée de pixel de l'image d'entrée à écrire sur l'image de sortie.
+
+```cpp
+output_image(x,y) = input_image(x % input_image.width(), y % input_image.height())
+```
+
 ### ⭐⭐⭐ Mosaïque miroir
 
+| ![Input Image](images/logo.png) | ![Output Image](output/mosaiquemiroir.png) |
+| ------------------------------- | ------------------------------------------ |
+| **Input**                       | **Output**                                 |
+
+Pour la mosaique miroir, nous utilisons le même principe que pour la mosaique classique mais avec une condition pour déterminer quand retourner l'image.
+
+```cpp
+    for (int x{0}; x < (mosaique.width()); x++)
+    {
+        for (int y{0}; y < mosaique.height(); y++)
+        {
+            if (x % (image.width() * 2) < image.width()){
+                if (y % (image.height() * 2) < image.height()){
+                    [...] // Pas de mirroir
+                }
+                else{
+                    [...] // Miroir sur les y
+                }
+            }
+            else{
+                if (y % (image.height() * 2) < image.height()){
+                    [...] // Miroir sur les x
+                }
+                else{
+                    [...] // Miroir sur les x et y
+                }
+            }
+        }
+    }
+```
+
 ### ⭐⭐⭐ Glitch
+
+| ![Input Image](images/logo.png) | ![Output Image](output/glitch.png) |
+| ------------------------------- | ---------------------------------- |
+| **Input**                       | **Output**                         |
 
 ### ⭐⭐⭐ Fractale de Mandelbrot
 
@@ -216,7 +261,7 @@ Pour assombrir l'image, nous appliquons une puissance plus grande que 1 à chaqu
 ```cpp
 output_image.pixel(output.x, output.y) = input_image.pixel(x, y);
 ```
-Pour que tout les pixel de l'image de sortie est une valeur attribuée, il ne faut pas parcourir l'image de sortie et déterminer quel pixel de l'image d'entrée détermine sa valeur car, via cette solution,  beaucoup de pixel de sortie seront associés à des pixel à l'extérieur de l'image. Pour que tout que tous les pixels soient une correspondance, il faut déterminer pour chaque pixel d'entrée, sa position après rotation.
+Pour que tout les pixel de l'image de sortie est une valeur attribuée, il ne faut pas parcourir l'image de sortie et déterminer quel pixel de l'image d'entrée détermine sa valeur car, via cette solution,  beaucoup de pixel de sortie seront associés à des pixel à l'extérieur de l'image. Pour que tous les pixels soient une correspondance, il faut déterminer pour chaque pixel d'entrée, sa position après rotation.
 
 ### ⭐⭐⭐(⭐) Tramage
 
@@ -232,8 +277,39 @@ Si nous changeons le coefficient dans le calcul de output_color (ici 1), le rés
 
 ### ⭐⭐⭐⭐ Convolutions
 
+| ![Input Image](images/logo.png) | ![Output Image](output/blur.png) |
+| ------------------------------- | -------------------------------- |
+| **Input**                       | **Output**                       |
+
+Nous avons utilisé la méthode de multiplier chaque pixel de l'image d'entrée par une matrice 3x3 :
+
+$$
+\frac{1}{9}
+\begin{pmatrix}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{pmatrix}
+$$
+
 ### ⭐ Netteté, Contours, etc.
+
+| ![Input](images/logo.png) | ![Output](output/sharpen.png) | ![Output](output/outline.png) | ![Output](output/emboss.png) |
+| ------------------------- | ----------------------------- | ----------------------------- | ---------------------------- |
+| **Input**                 | **Sharpen**                   | **Outline**                   | **Emboss**                   |
+
+
 
 ### ⭐⭐⭐⭐ Tri de pixels
 
+| ![Input Image](images/logo.png) | ![Output Image](output/triPixels.png) | ![Output Image](output/triPixels.gif) |
+| ------------------------------- | ------------------------------------- | ------------------------------------- |
+| **Input**                       | **Output**                            | **Output animé**                      |
+
 ### ⭐⭐⭐⭐⭐ Filtre de Kuwahara (effet peinture à l'huile)
+
+Le filtre de Kuwahara est une technique de traitement d’image qui permet de réduire le bruit tout en préservant les contours. Il consiste à diviser la fenêtre de filtrage en quatre sous-fenêtres et à calculer la moyenne et la variance de chaque sous-fenêtre. La valeur du pixel filtré est la moyenne de la sous-fenêtre qui a la plus petite variance.
+
+| ![Input Image](images/photo.jpg) | ![Output Image](output/kuwahara.jpg) |
+| -------------------------------- | ------------------------------------ |
+| **Input**                        | **Output**                           |
