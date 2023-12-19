@@ -19,14 +19,14 @@ int main()
     output_image.save("output/blur.png");
 }
 
-glm::vec3 getPixelBlur(sil::Image &image, glm::ivec2 pixelPosition)
+glm::vec3 getPixelBlur(sil::Image const&image, glm::ivec2 pixelPosition)
 {
 
     glm::mat3 kernel{1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f, 1.f};
     return multiplyPixelMatrix(image, pixelPosition, kernel);
 }
 
-glm::vec3 multiplyPixelMatrix(sil::Image &image, const glm::ivec2 pixelPos, const glm::mat3 matrix)
+glm::vec3 multiplyPixelMatrix(sil::Image const&image, const glm::ivec2 pixelPos, const glm::mat3& matrix)
 {
     glm::vec3 sum_color{0.f};
     float count{0};

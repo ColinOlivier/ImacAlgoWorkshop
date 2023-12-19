@@ -11,28 +11,26 @@ int main()
     {
         for (int y{0}; y < mosaique.height(); y++)
         {
+            // Vous pouvez écrire le code plus simplement, avec moins de if et moins de code dupliqué :
+            int actual_x;
+            int actual_y;
             if (x % (image.width() * 2) < image.width())
             {
-                if (y % (image.height() * 2) < image.height())
-                {
-                    mosaique.pixel(x, y) = image.pixel(x % image.width(), y % image.height()); /*normale bg*/
-                }
-                else
-                {
-                    mosaique.pixel(x, y) = image.pixel(x % image.width(), image.height() - 1 - (y % image.height())); /*inversée sur y hg*/
-                }
+                actual_x = x % image.width();
             }
             else
             {
-                if (y % (image.height() * 2) < image.height())
-                {
-                    mosaique.pixel(x, y) = image.pixel(image.width() - 1 - (x % image.width()), y % image.height()); /*inversée sur x bd*/
-                }
-                else
-                {
-                    mosaique.pixel(x, y) = image.pixel(image.width() - 1 - (x % image.width()), image.height() - 1 - (y % image.height())); /*inversée sur x et y hd*/
-                }
+                actual_x = image.width() - 1 - (x % image.width());
             }
+            if (y % (image.height() * 2) < image.height())
+            {
+                actual_y = y % image.height();
+            }
+            else
+            {
+                actual_y = image.height() - 1 - (y % image.height());
+            }
+            mosaique.pixel(x, y) = image.pixel(actual_x, actual_y);
         }
     }
     mosaique.save("output/mosaiquemiroir.png");
