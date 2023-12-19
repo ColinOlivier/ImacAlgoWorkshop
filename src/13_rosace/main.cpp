@@ -2,7 +2,7 @@
 
 #include <sil/sil.hpp>
 
-void createCircle(sil::Image &image, float &rayon, float &epaisseur, int &x, int &y, int &xCenter, int &yCenter)
+void createCircle(sil::Image &image, float rayon, float epaisseur, int x, int y, int xCenter, int yCenter) // TRÈS IMPORTANT: Ne passez par & que les variables qui ont besoin d'être changées !!! Pour les autres, utilisez const& ou juste rien (aka passage par copie). Pour les petits objets (int, float, double bool, etc.) on préférera la copie, et pour les gros objets (std::vector, std::string, etc.) la const&
 {
     float const distance { glm::distance(
                 glm::vec2{x, y},            /*position d'1 pt random*/
@@ -29,7 +29,7 @@ int main()
             {
                 int newCenterx(xCenter+rayon*cos((3.14)/3*i));
                 int newCentery(yCenter+rayon*sin((3.14)/3*i));
-                createCircle(image, rayon, epaisseur, x, y, newCenterx, newCentery);
+                createCircle(image, rayon, epaisseur, x, y, newCenterx, newCentery); // J'apprécie beaucoup que vous ayez fait une fonction helper createCircle() ! Ca évite d'avoir du code dupliqué.
             }
         }
     }

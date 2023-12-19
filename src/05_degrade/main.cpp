@@ -8,7 +8,7 @@ int main()
     {
         for (int y{0}; y < image.height(); y++)
         {
-            image.pixel(x, y) =  glm::vec3{x / (float)(image.width())};
+            image.pixel(x, y) =  glm::vec3{x / static_cast<float>(image.width())}; // On préférera utiliser static_cast pour faire des conversions d'un type à l'autre
         }
     }
     

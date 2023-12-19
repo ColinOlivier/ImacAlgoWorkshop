@@ -250,7 +250,7 @@ else{
 | ![Input Image](images/logo.png) | ![Output Image](output/vortex.png) | ![Output Image](output/vortex.gif) |
 | ------------------------------- | ---------------------------------- | ---------------------------------- |
 | **Input**                       | **Output**                         | **Output animé**                   |
-
+<!-- Stylé les versions animées -->
 ```cpp
 output_image.pixel(output.x, output.y) = input_image.pixel(x, y);
 ```
